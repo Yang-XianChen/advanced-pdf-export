@@ -75,6 +75,8 @@ export interface PDFExportSettings extends DocStyle {
   footerFontSize: number;
   footerFontColor: string;
   linkUnderline: boolean;
+  /** Corner radius of images in the export, in px (0 = square). */
+  imageRadius: number;
   frameEnabled: boolean;
   frameColor: string;
   frameThickness: number;
@@ -365,6 +367,7 @@ export const DEFAULT_SETTINGS: PDFExportSettings = {
   footerFontSize: 9,
   footerFontColor: "#aaaaaa",
   linkUnderline: true,
+  imageRadius: 0,
   frameEnabled: false,
   frameColor: "#000000",
   frameThickness: 4,

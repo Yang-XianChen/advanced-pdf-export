@@ -233,6 +233,17 @@ export class PDFExportSettingTab extends PluginSettingTab {
         }, { visible: () => s.backgroundImageEnabled }),
       ]),
 
+      group("Images", [
+        {
+          name: "Round images",
+          desc: "Rounds the corners of images in the export, in pixels, so every image gets the same corner size. 0 is square; a large value turns a square image into a circle.",
+          control: {
+            type: "slider", key: "imageRadius", min: 0, max: 100, step: 1,
+            displayFormat: (v: number) => `${v}px`,
+          },
+        },
+      ]),
+
       {
         ...group("Colors", [
           color("Accent color", "accentColor"),
@@ -314,7 +325,7 @@ export class PDFExportSettingTab extends PluginSettingTab {
       ]),
 
       group("Behaviour", [
-        toggle("Hide frontmatter", "hideFrontmatter", "Strip the YAML frontmatter block (--- … ---) from the preview and exported PDF."),
+        toggle("Hide frontmatter", "hideFrontmatter", "Strip the YAML frontmatter block (--- … ---) from the preview and exported PDF. When off, it is shown as a YAML code block."),
         toggle("Include file name as title", "includeFilenameAsTitle", "Prepend the note's file name as an H1 heading at the top of the PDF."),
         toggle("Underline links", "linkUnderline", "Applies to both internal and external links."),
         toggle("Auto page break before H1", "autoBreakH1"),
